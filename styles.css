@@ -6,7 +6,7 @@
 
 :root {
     --book-width: 100px;
-    --book-height: 100px;
+    --book-height: 150px;
 }
 html, body {
     height: 100%;
@@ -27,12 +27,22 @@ h1 {
 
 .bookshelf {
     /* min-width: var(--book-width); */
+    padding: 0.5rem;
     width: 75vw;
     min-height: var(--book-height);
     border: 1px solid black;
     margin-bottom: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, var(--book-width));
+    gap: 1rem;
 }
 
+.book {
+    width: var(--book-width);
+    height: var(--book-height);
+    border-radius: 5px;
+    background-color: bisque;
+}
 .add-button {
     border-radius: 100%;
     width: 50px;
@@ -40,4 +50,5 @@ h1 {
     font-size: 40px;
     background-color: rgb(100, 26, 26);
     color: rgba(199, 177, 147, 0.667);
+    border: 2px solid black;
 }
