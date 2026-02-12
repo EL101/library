@@ -9,6 +9,26 @@
 </head>
 <body>
     <h1>Library</h1>
+    <dialog id="book-form">
+        <form action="" method="get">
+            <div class="form-input">
+                <label for="title">Title</label>
+                <input id="title" type="text" name="title" required/>
+            </div>
+            <div class="form-input">
+                <label for="author">Author</label>
+                <input id="author" type="text" name="author" required/>
+            </div>
+            <div class="form-input">
+                <label for="pages">Pages</label>
+                <input id="pages" type="number" name="pages" required/>
+            </div>
+            <div class="form-input">
+                <label for="completed">Completed</label>
+                <input id="completed" type="checkbox" name="completed"/>
+            </div>
+        </form>
+    </dialog>
     <div class="bookshelf">
         <div class="book"></div>
         <div class="book"></div>
