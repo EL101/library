@@ -19,6 +19,7 @@ body {
     align-items: center;
     padding: 2rem 0;
     background-color: rgba(100, 66, 66, 0.7);
+    font-family: Helvetica, sans-serif;
 }
 
 h1 {
@@ -51,4 +52,32 @@ h1 {
     background-color: rgb(100, 26, 26);
     color: rgba(199, 177, 147, 0.667);
     border: 2px solid black;
+}
+
+#book-form {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.form-input {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-input:has(input[type="checkbox"]) {
+    flex-direction: row;
+    gap: 6px;
+    align-items: center;
+}
+.dialog-open {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    width: clamp(300px, 40%, 700px);
+    gap: 10px;
+    align-items: center;
+}
+
+.exit {
+    border-radius: 100%;
 }

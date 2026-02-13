@@ -9,8 +9,8 @@
 </head>
 <body>
     <h1>Library</h1>
-    <dialog id="book-form">
-        <form action="" method="get">
+    <dialog>
+        <form action="" method="get" id="book-form">
             <div class="form-input">
                 <label for="title">Title</label>
                 <input id="title" type="text" name="title" required/>
@@ -28,13 +28,15 @@
                 <input id="completed" type="checkbox" name="completed"/>
             </div>
         </form>
+        <button form="book-form" type="submit" class="book-form-submit">Done</button>
+        <button class="exit">X</button>
     </dialog>
     <div class="bookshelf">
+        <!-- <div class="book"></div>
         <div class="book"></div>
         <div class="book"></div>
         <div class="book"></div>
-        <div class="book"></div>
-        <div class="book"></div>
+        <div class="book"></div> -->
     </div>
     <button class="add-button">+</button>
 </body>
