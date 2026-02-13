@@ -41,7 +41,8 @@ h1 {
 }
 
 .book {
-    min-width: var(--book-width);
+    color: white;
+    width: var(--book-width);
     height: var(--book-height);
     border-radius: 5px;
     background-color: #ffe4c4;
@@ -63,7 +64,17 @@ h1 {
 }
 .book-author {
     font-style: italic;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
+}
+.book-pages {
+    font-size: 0.7rem;
+}
+.book > button {
+    font-size: 0.9rem;
+    margin-top: 5rem;
+    padding: 0.3rem;
+    border-radius: 4px;
+    border: 1px solid black;
 }
 .add-button {
     border-radius: 100%;

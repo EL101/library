@@ -1,9 +1,12 @@
 let addBookButton = document.querySelector(".add-button");
 let bookshelf = document.querySelector(".bookshelf");
-let dialog = document.querySelector("dialog")
+let dialog = document.querySelector(".add-book-dialog")
 let exitDialog = document.querySelector(".exit")
 let bookForm = document.querySelector("#book-form")
 let bookFormSubmit = document.querySelector(".book-form-submit")
+
+const library = []
+const mapIDtoBook = new Map()
 addBookButton.addEventListener("click", (e) => {
     dialog.showModal()
     dialog.classList.toggle("dialog-open")
@@ -27,7 +30,7 @@ bookFormSubmit.addEventListener("click", e => {
     }
 })
 
-const library = []
+
 const colors = ["#63a462", "#ba2f14", "#3e65b4", "#8f6039"]
 function Book(author, title, pages, read, id, color) {
     this.author = author
@@ -38,14 +41,25 @@ function Book(author, title, pages, read, id, color) {
     this.color = color
 }
 
+function toggleRead(e) {
+    e.target.classList.toggle("complete")
+    e.target.textContent = e.target.classList.contains("complete") ? "Complete" : "Still Reading"
+    console.log(mapIDtoBook.get(e.target.dataset.id))
+    console.log(e.target.dataset.id)
+    let book = mapIDtoBook.get(e.target.dataset.id)
+    book.read = !book.read
+}
 function addBook(author, title, pages, read) {
-    library.push(new Book(
+    let id = crypto.randomUUID()
+    let book = new Book(
         author, 
         title, 
         pages, 
         read, 
-        crypto.randomUUID(),
-        colors[Math.floor(Math.random() * colors.length)]))
+        id,
+        colors[Math.floor(Math.random() * colors.length)])
+    library.push(book)
+    mapIDtoBook.set(id, book)
 }
 
 function displayLibrary() {
@@ -59,14 +73,25 @@ function displayLibrary() {
         let bookAuthor = document.createElement("div")
         bookAuthor.classList.add("book-author")
         bookAuthor.textContent = book.author
+        let bookPages = document.createElement("div")
+        bookPages.classList.add("book-pages")
+        bookPages.textContent = book.pages + " pages"
+        let readButton = document.createElement("button")
+        if (book.read) {
+            readButton.classList.toggle("complete")
+        }
+        readButton.textContent = book.read ? "Completed" : "Still Reading"
+        readButton.addEventListener("click", toggleRead)
+        newBook.dataset.id = book.id
         // let bookPages = document.createElement("div")
         // bookPages.classList.add("book-pages")
         // bookPages.textContent = book.author
         newBook.style.backgroundColor = book.color
-        console.log(book.read)
         newBook.append(
             bookTitle,
-            bookAuthor)
+            bookAuthor,
+            bookPages,
+            readButton)
         bookshelf.append(newBook)
     }
 }
