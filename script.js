@@ -28,16 +28,24 @@ bookFormSubmit.addEventListener("click", e => {
 })
 
 const library = []
-function Book(author, title, pages, read, id) {
+const colors = ["#63a462", "#ba2f14", "#3e65b4", "#8f6039"]
+function Book(author, title, pages, read, id, color) {
     this.author = author
     this.title = title
     this.pages = pages
     this.read = read
     this.id = id
+    this.color = color
 }
 
 function addBook(author, title, pages, read) {
-    library.push(new Book(author, title, pages, read, crypto.randomUUID()))
+    library.push(new Book(
+        author, 
+        title, 
+        pages, 
+        read, 
+        crypto.randomUUID(),
+        colors[Math.floor(Math.random() * colors.length)]))
 }
 
 function displayLibrary() {
@@ -54,7 +62,7 @@ function displayLibrary() {
         // let bookPages = document.createElement("div")
         // bookPages.classList.add("book-pages")
         // bookPages.textContent = book.author
-        
+        newBook.style.backgroundColor = book.color
         console.log(book.read)
         newBook.append(
             bookTitle,
