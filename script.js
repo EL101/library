@@ -40,11 +40,28 @@ function addBook(author, title, pages, read) {
     library.push(new Book(author, title, pages, read, crypto.randomUUID()))
 }
 
+function createBookElement(heading, content) {
+    let bookElement = document.createElement("div")
+    bookElement.classList.add("book-element")
+    let h3 = document.createElement("h3")
+    h3.textContent = heading
+    let p = document.createElement("p")
+    p.textContent = content
+    bookElement.append(h3, p)
+    return bookElement
+}
+
 function displayLibrary() {
     bookshelf.innerHTML = ""
-    for (let book in library) {
+    for (let book of library) {
         let newBook = document.createElement("div");
         newBook.classList.add("book")
-        bookshelf.appendChild(newBook)
+        console.log(book.read)
+        newBook.append(
+            createBookElement("Title", book.title),
+            createBookElement("Author", book.author),
+            createBookElement("Pages", book.pages),
+            createBookElement("Complete", book.read))
+        bookshelf.append(newBook)
     }
 }

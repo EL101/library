@@ -6,7 +6,7 @@
 
 :root {
     --book-width: 100px;
-    --book-height: 150px;
+    --book-height: 160px;
 }
 html, body {
     height: 100%;
