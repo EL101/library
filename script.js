@@ -64,6 +64,8 @@ function addBook(author, title, pages, read) {
 function displayLibrary() {
     bookshelf.innerHTML = ""
     for (let book of library) {
+        let bookContainer = document.createElement("div")
+        bookContainer.classList.add("book-container")
         let newBook = document.createElement("div")
         newBook.classList.add("book")
         let bookTitle = document.createElement("div")
@@ -91,6 +93,11 @@ function displayLibrary() {
             bookAuthor,
             bookPages,
             readButton)
-        bookshelf.append(newBook)
+        
+        let deleteBook = document.createElement("button")
+        deleteBook.classList.add("delete-book")
+        deleteBook.textContent = "X"
+        bookContainer.append(newBook, deleteBook)
+        bookshelf.append(bookContainer)
     }
 }
