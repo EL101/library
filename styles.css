@@ -104,21 +104,24 @@ h1 {
     position: relative;
 }
 
-.delete-book {
-    width: 2.5rem;
-    height: 2.5rem;
+.delete-book, .exit {
     border-radius: 100%;
     border: 2px solid white;
     background-color: rgb(223, 65, 65);
     color: white;
     font-weight: bold;
-    position: relative;
-    top: -1.25rem;
-    font-size: 1.25rem;
     box-shadow: var(--book-shadow);
 }
 
-.delete-book:hover {
+.delete-book {
+    width: 2.5rem;
+    height: 2.5rem;
+    position: relative;
+    top: -1.25rem;
+    font-size: 1.25rem;
+}
+
+.delete-book:hover, .exit:hover {
     cursor: pointer;
     background-color: rgb(171, 50, 50);
 }
@@ -137,10 +140,11 @@ h1 {
     background-color: rgb(75, 20, 20);
 
 }
+
 #book-form {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 0.8rem;
 }
 .form-input {
     display: flex;
@@ -153,14 +157,32 @@ h1 {
     align-items: center;
 }
 .dialog-open {
-    margin: auto;
+    margin: 13vh auto auto auto;
+    padding: 1.5rem;
     display: flex;
     flex-direction: column;
-    width: clamp(300px, 40%, 700px);
+    width: clamp(300px, 40%, 400px);
+    height: 30vh;
     gap: 10px;
     align-items: center;
+    background-color: rgb(219, 183, 84);
+    border-radius: 10px;
+    position: relative;
+    overflow: visible;
+}
+
+.form-input > label {
+    font-size: 0.9rem;
 }
 
 .exit {
-    border-radius: 100%;
+    width: 1.5rem;
+    height: 1.5rem;
+    position: absolute;
+    left: 0.5rem;
+    top: 0.3rem;
+    flex-shrink: 0;
+    font-size: 0.7rem;
+    border: 1px solid white;
+    box-shadow: none;
 }
