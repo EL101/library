@@ -5,7 +5,7 @@ let exitDialog = document.querySelector(".exit")
 let bookForm = document.querySelector("#book-form")
 let bookFormSubmit = document.querySelector(".book-form-submit")
 
-const library = []
+let library = []
 const mapIDtoBook = new Map()
 addBookButton.addEventListener("click", (e) => {
     dialog.showModal()
@@ -48,6 +48,16 @@ function toggleRead(e) {
     let book = mapIDtoBook.get(bookElement.dataset.id)
     book.read = !book.read
 }
+
+function deleteBook(e) {
+    let bookElement = e.target.parentElement.querySelector(".book")
+    let book = mapIDtoBook.get(bookElement.dataset.id)
+    console.log(book, book.id)
+    mapIDtoBook.delete(book.id)
+    library = library.filter(b => b.id !== book.id)
+    displayLibrary();
+}
+
 function addBook(author, title, pages, read) {
     let id = crypto.randomUUID()
     let book = new Book(
@@ -94,10 +104,11 @@ function displayLibrary() {
             bookPages,
             readButton)
         
-        let deleteBook = document.createElement("button")
-        deleteBook.classList.add("delete-book")
-        deleteBook.textContent = "X"
-        bookContainer.append(newBook, deleteBook)
+        let deleteBookElement = document.createElement("button")
+        deleteBookElement.classList.add("delete-book")
+        deleteBookElement.textContent = "X"
+        deleteBookElement.addEventListener("click", deleteBook);
+        bookContainer.append(newBook, deleteBookElement)
         bookshelf.append(bookContainer)
     }
 }
