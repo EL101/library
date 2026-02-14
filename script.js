@@ -32,7 +32,7 @@ bookFormSubmit.addEventListener("click", e => {
 
 
 const colors = ["#63a462", "#ba2f14", "#3e65b4", "#8f6039"]
-function Book(author, title, pages, read, id, color) {
+function Book(title, author, pages, read, id, color) {
     this.author = author
     this.title = title
     this.pages = pages
@@ -58,11 +58,11 @@ function deleteBook(e) {
     displayLibrary();
 }
 
-function addBook(author, title, pages, read) {
+function addBook(title, author, pages, read) {
     let id = crypto.randomUUID()
     let book = new Book(
-        author, 
         title, 
+        author, 
         pages, 
         read, 
         id,
