@@ -44,9 +44,8 @@ function Book(author, title, pages, read, id, color) {
 function toggleRead(e) {
     e.target.classList.toggle("complete")
     e.target.textContent = e.target.classList.contains("complete") ? "Complete" : "Still Reading"
-    console.log(mapIDtoBook.get(e.target.dataset.id))
-    console.log(e.target.dataset.id)
-    let book = mapIDtoBook.get(e.target.dataset.id)
+    let bookElement = e.target.parentElement
+    let book = mapIDtoBook.get(bookElement.dataset.id)
     book.read = !book.read
 }
 function addBook(author, title, pages, read) {
