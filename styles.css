@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Quintessential", Helvetica, sans-serif;
 }
 
 :root {
@@ -20,17 +21,19 @@ body {
     align-items: center;
     padding: 2rem 0;
     background-color: rgba(174, 128, 96, 0.7);
-    font-family: Helvetica, sans-serif;
 }
 
 h1 {
+    font-size: 2.3rem;
     margin-bottom: 2rem;
+    font-weight: 700;
+    color: rgb(135, 69, 21);
 }
 
 .bookshelf {
     /* min-width: var(--book-width); */
     padding: 0.5rem;
-    width: 75vw;
+    width: 77vw;
     min-height: var(--book-height);
     border: 5px solid rgb(127, 90, 52);
     margin-bottom: 2rem;
@@ -38,7 +41,10 @@ h1 {
     grid-template-columns: repeat(auto-fit, var(--book-width));
     gap: 1rem;
     overflow-y: auto;
-    justify-content: center;
+    /* justify-content: center; */
+    box-shadow:
+        inset 0 0 6px 3px #7b3b0758,
+        2px 2px 6px rgba(0,0,0,0.2);
 }
 
 .book {
@@ -52,7 +58,9 @@ h1 {
     flex-direction: column;
     align-items: center;
     gap: 0.3rem;
-    box-shadow: var(--standard-shadow);
+    box-shadow: 
+        inset 0 0 6px 4px rgba(110, 109, 109, 0.275),
+        var(--standard-shadow);
     overflow-x: hidden;
     text-overflow: ellipsis;
     position: relative;
@@ -142,6 +150,11 @@ h1 {
     color: rgba(231, 190, 150, 0.667);
     border: 2px solid rgb(64, 57, 53);
     box-shadow: 0px 0px 5px 2px rgba(128, 128, 128, 0.554);
+    line-height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 0.6rem;
 }
 .add-button:hover {
     cursor: pointer;
@@ -166,6 +179,7 @@ h1 {
 }
 .add-book-dialog::backdrop {
     background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
 }
 .dialog-open {
     margin: 13vh auto auto auto;
@@ -203,7 +217,7 @@ h1 {
 }
 
 .book-form-submit {
-    margin-top: 1.3rem;
+    margin-top: 0.2rem;
     width: 4rem;
     height: 2rem;
     background-color: rgb(134, 51, 32);
